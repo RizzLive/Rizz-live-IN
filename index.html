@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Rizz Live – Policies</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface2: #1a1a24;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.12);
+  --text: #ffffff;
+  --text2: rgba(255,255,255,0.6);
+  --text3: rgba(255,255,255,0.35);
+  --green: #00ff88;
+  --cyan: #00ccff;
+  --purple: #8b44ff;
+  --pink: #ff44aa;
+  --gold: #ffcc00;
+  --red: #ff4466;
+  --grad1: linear-gradient(135deg, #8b44ff, #ff44aa);
+  --grad2: linear-gradient(135deg, #00ff88, #00ccff);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* ── PAGES ── */
+.page{display:none;min-height:100vh;flex-direction:column;}
+.page.active{display:flex;}
+
+/* ── SUCCESS PAGE ── */
+#page-success{align-items:center;justify-content:center;padding:40px 24px;}
+.success-card{
+  background:var(--surface);border:1px solid rgba(0,255,136,0.25);
+  border-radius:24px;padding:48px 32px;text-align:center;max-width:420px;width:100%;
+  box-shadow:0 0 60px rgba(0,255,136,0.1);
+}
+.success-icon{
+  width:72px;height:72px;background:linear-gradient(135deg,rgba(0,255,136,0.2),rgba(0,200,255,0.2));
+  border:2px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:32px;margin:0 auto 20px;
+}
+.success-card h2{font-size:22px;font-weight:700;margin-bottom:8px;color:var(--green);}
+.success-card p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:6px;}
+.back-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:28px;
+  background:var(--grad1);color:#fff;font-size:13px;font-weight:700;
+  padding:12px 28px;border-radius:50px;border:none;cursor:pointer;
+  letter-spacing:1px;text-transform:uppercase;
+}
+
+/* ── LOGO SVG FALLBACK ── */
+.logo-fallback{
+  width:44px;height:44px;background:var(--grad1);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Orbitron',monospace;font-size:14px;font-weight:900;color:#fff;flex-shrink:0;
+}
+.logo-img{width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;}
+
+/* ── HOME PAGE ── */
+#page-home{align-items:stretch;}
+
+/* Hero */
+.hero{
+  padding:48px 24px 36px;text-align:center;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(138,68,255,0.18) 0%,transparent 70%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.hero-inner{position:relative;z-index:1;}
+.hero-logo{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px;}
+.hero-logo-text{text-align:left;}
+.hero-logo-text .brand{font-family:'Orbitron',monospace;font-size:28px;font-weight:900;letter-spacing:3px;
+  background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-logo-text .sub{font-size:10px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;}
+
+.live-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,68,68,0.15);border:1px solid rgba(255,68,68,0.3);
+  border-radius:50px;padding:5px 14px;font-size:10px;font-weight:700;
+  letter-spacing:2px;color:#ff6666;text-transform:uppercase;margin-bottom:18px;
+}
+.live-dot{width:7px;height:7px;background:#ff4444;border-radius:50%;box-shadow:0 0 6px #ff4444;animation:blink 1.2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+.hero h1{font-family:'Orbitron',monospace;font-size:42px;font-weight:900;letter-spacing:4px;line-height:1.05;
+  background:linear-gradient(135deg,#00ff88,#00ccff,#8b44ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(0,255,136,0.3));margin-bottom:6px;}
+.hero p{font-size:12px;color:var(--text3);letter-spacing:3px;text-transform:uppercase;}
+
+/* Nav Cards */
+.nav-section{padding:0 16px 16px;}
+.section-head{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin:24px 0 12px 4px;}
+
+.nav-card{
+  display:flex;align-items:center;gap:16px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:20px 18px;margin-bottom:10px;cursor:pointer;
+  transition:all 0.2s;text-decoration:none;color:var(--text);
+}
+.nav-card:hover,.nav-card:active{background:var(--surface2);border-color:var(--border2);transform:translateY(-1px);}
+.nav-icon{
+  width:48px;height:48px;border-radius:14px;display:flex;align-items:center;
+  justify-content:center;font-size:22px;flex-shrink:0;
+}
+.nav-icon.green{background:rgba(0,255,136,0.12);border:1px solid rgba(0,255,136,0.2);}
+.nav-icon.purple{background:rgba(138,68,255,0.12);border:1px solid rgba(138,68,255,0.2);}
+.nav-icon.cyan{background:rgba(0,204,255,0.12);border:1px solid rgba(0,204,255,0.2);}
+.nav-card-text{flex:1;}
+.nav-card-title{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.nav-card-sub{font-size:11px;color:var(--text3);}
+.nav-arrow{font-size:18px;color:var(--text3);}
+
+/* Contact / Channel */
+.contact-section{padding:0 16px 16px;}
+.channel-card{
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,rgba(0,255,136,0.06),rgba(0,204,255,0.06));
+  border:1px solid rgba(0,255,136,0.2);
+  border-radius:16px;padding:18px;text-decoration:none;color:var(--text);
+  transition:all 0.2s;
+}
+.channel-card:hover{background:linear-gradient(135deg,rgba(0,255,136,0.1),rgba(0,204,255,0.1));}
+.channel-icon{width:48px;height:48px;background:#25d366;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.channel-text{flex:1;}
+.channel-title{font-size:13px;font-weight:700;margin-bottom:3px;}
+.channel-sub{font-size:11px;color:var(--text3);}
+.channel-btn{
+  background:var(--grad2);color:#000;font-size:10px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;
+  border-radius:50px;white-space:nowrap;
+}
+
+/* Footer */
+footer{
+  margin-top:auto;padding:20px 24px;text-align:center;
+  border-top:1px solid var(--border);
+}
+footer p{font-size:10px;color:var(--text3);letter-spacing:1px;}
+footer strong{color:var(--text2);}
+
+/* ── INNER PAGES ── */
+.inner-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,10,15,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:14px 20px;display:flex;align-items:center;gap:14px;
+}
+.back-icon{
+  width:36px;height:36px;background:var(--surface2);border:1px solid var(--border2);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:16px;cursor:pointer;flex-shrink:0;transition:all 0.2s;
+}
+.back-icon:hover{background:var(--surface);}
+.inner-header-logo{display:flex;align-items:center;gap:10px;}
+.inner-header-logo .brand{font-family:'Orbitron',monospace;font-size:16px;font-weight:900;letter-spacing:2px;
+  background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.inner-header-logo .sub{font-size:9px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;}
+.inner-page-title{margin-left:auto;text-align:right;}
+.inner-page-title .label{font-size:9px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;}
+.inner-page-title .name{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);}
+
+/* Inner hero band */
+.inner-hero{
+  padding:28px 20px 20px;text-align:center;
+  background:radial-gradient(ellipse 100% 200% at 50% 0%,rgba(138,68,255,0.12) 0%,transparent 70%);
+  border-bottom:1px solid var(--border);
+}
+.inner-hero .eyebrow{font-size:9px;color:var(--text3);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+.inner-hero h2{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:4px;
+  background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* Accordion */
+.accordion-wrap{padding:16px;}
+.accordion{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;margin-bottom:10px;overflow:hidden;
+}
+.accordion-header{
+  display:flex;align-items:center;gap:14px;padding:18px 16px;cursor:pointer;
+  transition:background 0.2s;
+}
+.accordion-header:hover{background:var(--surface2);}
+.acc-num{
+  width:32px;height:32px;border-radius:10px;background:var(--grad1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#fff;flex-shrink:0;
+}
+.acc-title{font-size:13px;font-weight:700;flex:1;letter-spacing:0.5px;}
+.acc-arrow{font-size:14px;color:var(--text3);transition:transform 0.3s;}
+.accordion.open .acc-arrow{transform:rotate(180deg);}
+.accordion-body{display:none;padding:0 16px 18px;}
+.accordion.open .accordion-body{display:block;}
+
+/* Tables */
+.table-wrap{overflow-x:auto;margin:14px 0;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+th{background:rgba(138,68,255,0.15);color:var(--text2);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border2);}
+td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text2);}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+
+/* Info blocks */
+.info-block{
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  border-radius:12px;padding:14px;margin:12px 0;
+}
+.info-block.green{background:rgba(0,255,136,0.05);border-color:rgba(0,255,136,0.2);}
+.info-block.purple{background:rgba(138,68,255,0.05);border-color:rgba(138,68,255,0.2);}
+.info-block.red{background:rgba(255,68,68,0.05);border-color:rgba(255,68,68,0.2);}
+.info-block .block-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.info-block.green .block-title{color:var(--green);}
+.info-block.purple .block-title{color:var(--purple);}
+.info-block.red .block-title{color:var(--red);}
+.info-block p,.info-block li{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:3px;}
+.info-block ul,.info-block ol{padding-left:16px;}
+.info-block strong{color:var(--text);}
+
+.example-tag{
+  display:inline-block;background:rgba(255,204,0,0.15);border:1px solid rgba(255,204,0,0.3);
+  color:var(--gold);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:3px 10px;border-radius:50px;margin-bottom:8px;
+}
+
+/* Tier cards */
+.tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;}
+.tier-card{
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  border-radius:12px;padding:14px;text-align:center;
+}
+.tier-badge{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.tier-badge.rookie{color:#aaa;}
+.tier-badge.prestige{color:var(--gold);}
+.tier-badge.l1{color:#888;}
+.tier-badge.l2{color:var(--cyan);}
+.tier-badge.l3{color:var(--green);}
+.tier-percent{font-family:'Bebas Neue',cursive;font-size:38px;line-height:1;
+  background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tier-label{font-size:10px;color:var(--text3);margin-top:3px;}
+
+/* Commission big display */
+.comm-display{
+  display:flex;align-items:stretch;gap:0;
+  background:rgba(138,68,255,0.06);border:1px solid rgba(138,68,255,0.2);
+  border-radius:14px;overflow:hidden;margin:12px 0;
+}
+.comm-item{flex:1;padding:16px 12px;text-align:center;}
+.comm-item+.comm-item{border-left:1px solid rgba(255,255,255,0.08);}
+.comm-num{font-family:'Bebas Neue',cursive;font-size:40px;line-height:1;
+  background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.comm-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;}
+
+/* ── FORM PAGE ── */
+#page-form .inner-hero h2{color:transparent;}
+.form-wrap{padding:16px;}
+.form-group{margin-bottom:14px;}
+label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:7px;}
+input,select,textarea{
+  width:100%;background:var(--surface);border:1px solid var(--border2);
+  border-radius:12px;padding:14px 16px;color:var(--text);font-family:'Poppins',sans-serif;
+  font-size:13px;outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+  -webkit-appearance:none;appearance:none;
+}
+input::placeholder,textarea::placeholder{color:var(--text3);}
+input:focus,select:focus,textarea:focus{
+  border-color:rgba(138,68,255,0.5);
+  box-shadow:0 0 0 3px rgba(138,68,255,0.1);
+}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.4)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+select option{background:#1a1a24;color:#fff;}
+textarea{resize:vertical;min-height:80px;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+.submit-btn{
+  width:100%;background:var(--grad1);color:#fff;border:none;
+  border-radius:14px;padding:16px;font-family:'Poppins',sans-serif;
+  font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:opacity 0.2s,transform 0.1s;margin-top:6px;
+  box-shadow:0 0 30px rgba(138,68,255,0.35);
+}
+.submit-btn:hover{opacity:0.9;transform:translateY(-1px);}
+.submit-btn:active{transform:translateY(0);}
+
+.required-star{color:var(--red);}
+.form-note{font-size:10px;color:var(--text3);text-align:center;margin-top:12px;line-height:1.6;}
+
+/* Salary sub-table */
+.sub-table{width:100%;font-size:11px;border-collapse:collapse;margin:8px 0;}
+.sub-table th{font-size:9px;padding:8px 10px;letter-spacing:1px;}
+.sub-table td{padding:8px 10px;}
+
+/* Rule list */
+.rule-list{list-style:none;padding:0;}
+.rule-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:12px;color:var(--text2);line-height:1.5;
+}
+.rule-list li:last-child{border-bottom:none;}
+.rule-dot{width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0;margin-top:6px;}
+
+/* Warning box */
+.warn-box{
+  background:rgba(255,68,68,0.06);border:1px solid rgba(255,68,68,0.25);
+  border-radius:12px;padding:14px;margin-top:12px;
+}
+.warn-box p{font-size:12px;color:rgba(255,120,120,0.9);line-height:1.6;}
+.warn-box strong{color:#ff6666;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ SUCCESS PAGE ═══════════════════ -->
+<div id="page-success" class="page">
+  <div class="success-card">
+    <div class="success-icon">✓</div>
+    <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:6px;">Registration Status</p>
+    <h2>Form Successfully Submitted!</h2>
+    <p style="margin-top:10px;">🎉 Aapka Form Safaltapoorvak Submit Ho Gaya!</p>
+    <p>Hamari Team aapki application review karegi aur jaldi hi aapse sampark karegi.</p>
+    <p>Kripaya WhatsApp par available rahein. Dhanyavaad! 🙏</p>
+    <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+  </div>
+</div>
+
+<!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo">
+        <img src="logo.png" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="logo-fallback" style="display:none;">RL</div>
+        <div class="hero-logo-text">
+          <div class="brand">RIZZ LIVE</div>
+          <div class="sub">Live Streaming Platform</div>
+        </div>
+      </div>
+      <div class="live-badge"><div class="live-dot"></div>Live</div>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="section-head">POLICY</div>
+
+    <div class="nav-card" onclick="showPage('host')">
+      <div class="nav-icon green">🎙️</div>
+      <div class="nav-card-text">
+        <div class="nav-card-title">HOST POLICY</div>
+        <div class="nav-card-sub">Rules & guidelines for live hosts</div>
+      </div>
+      <div class="nav-arrow">›</div>
+    </div>
+
+    <div class="nav-card" onclick="showPage('agency')">
+      <div class="nav-icon purple">🏛️</div>
+      <div class="nav-card-text">
+        <div class="nav-card-title">AGENCY POLICY</div>
+        <div class="nav-card-sub">Agency terms & conditions</div>
+      </div>
+      <div class="nav-arrow">›</div>
+    </div>
+
+    <div class="nav-card" onclick="showPage('form')">
+      <div class="nav-icon cyan">📝</div>
+      <div class="nav-card-text">
+        <div class="nav-card-title">AGENCY REGISTRATION</div>
+        <div class="nav-card-sub">Register your agency with Rizz Live</div>
+      </div>
+      <div class="nav-arrow">›</div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <div class="section-head">Contact</div>
+    <!-- ✏️ EDIT: Change the href to your WhatsApp channel link -->
+    <a class="channel-card" href="https://whatsapp.com/channel/0029VbDBUZoBvvsX0cu4vO0c" target="_blank">
+      <div class="channel-icon">📢</div>
+      <div class="channel-text">
+        <div class="channel-title">OFFICIAL CHANNEL</div>
+        <div class="channel-sub">Daily updates & announcements</div>
+      </div>
+      <div class="channel-btn">WhatsApp ›</div>
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2026 All Rights Reserved · <strong>Rizz Live India</strong></p>
+  </footer>
+</div>
+
+<!-- ═══════════════════ HOST POLICY PAGE ═══════════════════ -->
+<div id="page-host" class="page">
+  <div class="inner-header">
+    <div class="back-icon" onclick="showPage('home')">←</div>
+    <div class="inner-header-logo">
+      <img src="logo.png" class="logo-img" style="width:32px;height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="logo-fallback" style="display:none;width:32px;height:32px;font-size:11px;">RL</div>
+      <div>
+        <div class="brand" style="font-family:'Orbitron',monospace;font-size:14px;font-weight:900;letter-spacing:2px;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Rizz Live</div>
+        <div style="font-size:9px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Live Streaming Platform</div>
+      </div>
+    </div>
+    <div class="inner-page-title">
+      <div class="label">Guidelines</div>
+      <div class="name">HOST POLICY</div>
+    </div>
+  </div>
+  <div class="inner-hero">
+    <div class="eyebrow">Back to Home</div>
+    <h2>HOST POLICY</h2>
+  </div>
+  <div class="accordion-wrap">
+
+    <!-- 01 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">01</div>
+        <div class="acc-title">Host Salary Structure</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <p style="font-size:13px;font-weight:700;margin:0 0 10px;">1. Personal Gift Share</p>
+        <div class="info-block green">
+          <div class="block-title">Host Gift Share</div>
+          <p style="font-size:28px;font-weight:900;color:var(--green);">100%</p>
+        </div>
+        <div class="info-block">
+          <div class="example-tag">Example</div>
+          <p>If a user sends <strong>10K Coins</strong> during a live broadcast, the host receives <strong>10K Rubies</strong>.</p>
+        </div>
+
+        <p style="font-size:13px;font-weight:700;margin:16px 0 10px;">2. Daily Live Bonus</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Valid Hours Target</th><th>Valid Days Target</th><th>Daily Bonus</th></tr></thead>
+            <tbody><tr><td>2</td><td>1</td><td style="color:var(--green);font-weight:700;">10%</td></tr></tbody>
+          </table>
+        </div>
+        <div class="info-block">
+          <div class="example-tag">Example</div>
+          <p>If a host earns <strong>100k Rubies</strong> in gifts that day and completes <strong>2 Valid Hours</strong>, they receive a <strong>10k Ruby bonus (10%)</strong>, credited next day.</p>
+        </div>
+        <div class="info-block purple">
+          <div class="block-title">Bonus Requirements</div>
+          <ul><li>Stream at least <strong>2 valid hours</strong> in a single day</li><li>Bonus applies on <strong>gift Rubies only</strong> — game commission excluded</li></ul>
+        </div>
+
+        <p style="font-size:13px;font-weight:700;margin:16px 0 10px;">3. Weekly Bonus</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Valid Hours Target</th><th>Valid Days Target</th><th>Weekly Bonus</th></tr></thead>
+            <tbody><tr><td>10</td><td>4</td><td style="color:var(--gold);font-weight:700;">30%</td></tr></tbody>
+          </table>
+        </div>
+        <div class="info-block">
+          <div class="example-tag">Example</div>
+          <p>If a host earns <strong>100K Rubies</strong> in one week (Sun 10:30 PM – Sun 10:30 PM), they receive a <strong>30K Ruby bonus (30%)</strong>, credited on <strong>Monday</strong>.</p>
+        </div>
+        <div class="info-block purple">
+          <div class="block-title">Bonus Requirements</div>
+          <ul><li>Complete at least <strong>4 active days</strong></li><li>Stream a total of <strong>10 hours</strong> in the week</li></ul>
+        </div>
+
+        <div class="info-block">
+          <div class="block-title" style="color:var(--cyan);">Rules</div>
+          <ul class="rule-list" style="padding:0;">
+            <li><span class="rule-dot"></span><span><strong>Withdrawal Rate:</strong> 20,000 Ruby = 1 USD</span></li>
+            <li><span class="rule-dot"></span><span><strong>Day Change:</strong> Daily at 10:30 PM</span></li>
+            <li><span class="rule-dot"></span><span><strong>Weekly Period:</strong> Sunday 10:30 PM to Sunday 10:30 PM</span></li>
+            <li><span class="rule-dot"></span><span><strong>Valid Day:</strong> Minimum 120 minutes (2 hours) Live</span></li>
+            <li><span class="rule-dot"></span><span><strong>Valid Hour:</strong> 60+ minutes = 1 valid hour</span></li>
+            <li><span class="rule-dot"></span><span><strong>Minimum Live Time:</strong> Sessions below 30 minutes are not counted</span></li>
+            <li><span class="rule-dot"></span><span><strong>Bonus Payment:</strong> Every Monday (In Rubies)</span></li>
+            <li><span class="rule-dot"></span><span><strong>Withdrawal:</strong> Once per day — Minimum $10 USD</span></li>
+          </ul>
+        </div>
+
+        <div class="info-block">
+          <div class="block-title" style="color:var(--cyan);">Agency Change Rules</div>
+          <ul><li>No live for <strong>120 days</strong></li><li>Current contract agency unreachable for <strong>2 weeks</strong></li><li>Both host and agency <strong>mutually agree</strong></li></ul>
+        </div>
+        <div class="warn-box">
+          <p><strong>Strict Rule:</strong> Any misuse or cheating during transfer → <strong>Warning / Suspension / Ban</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">02</div>
+        <div class="acc-title">Host Game Commissions</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bet Amount (Coins)</th><th>Reward (Ruby)</th></tr></thead>
+            <tbody><tr><td>1,000</td><td>1</td></tr></tbody>
+          </table>
+        </div>
+        <ul class="rule-list" style="padding:0;margin-top:8px;">
+          <li><span class="rule-dot"></span><span>Host earns <strong>1 Ruby</strong> for every <strong>1,000 coins</strong> used in games</span></li>
+          <li><span class="rule-dot"></span><span>This income <strong>does NOT count</strong> toward weekly targets</span></li>
+          <li><span class="rule-dot"></span><span>Earnings <strong>credited instantly</strong> after each stream ends</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">03</div>
+        <div class="acc-title">Rookie Host Policy</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <div class="table-wrap">
+          <table class="sub-table">
+            <thead><tr><th>Cycle</th><th>Ruby Target</th><th>Days</th><th>Hours</th><th>Guarantee</th></tr></thead>
+            <tbody>
+              <tr><td>Week 1</td><td>0</td><td>4</td><td>10</td><td style="color:var(--green);font-weight:700;">$5</td></tr>
+              <tr><td>Week 2</td><td>50,000</td><td>4</td><td>10</td><td style="color:var(--green);font-weight:700;">$5</td></tr>
+              <tr><td>Week 3</td><td>100,000</td><td>4</td><td>10</td><td style="color:var(--green);font-weight:700;">$5</td></tr>
+              <tr><td>Week 4</td><td>150,000</td><td>4</td><td>10</td><td style="color:var(--green);font-weight:700;">$5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="rule-list" style="padding:0;margin-top:8px;">
+          <li><span class="rule-dot"></span><span>New hosts must be <strong>approved</strong> to get guarantee for first 4 weeks</span></li>
+          <li><span class="rule-dot"></span><span><strong>Week 1:</strong> No target – guarantee given automatically</span></li>
+          <li><span class="rule-dot"></span><span>Missing one week's target <strong>does not cancel</strong> next week's guarantee</span></li>
+          <li><span class="rule-dot"></span><span>If Valid Days & Hours not met → <strong>salary under basic policy</strong></span></li>
+          <li><span class="rule-dot"></span><span>From <strong>Week 5 onward</strong>, only basic policy applies</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">04</div>
+        <div class="acc-title">Prestige Host Policy</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <div class="table-wrap">
+          <table class="sub-table">
+            <thead><tr><th>Cycle</th><th>Ruby Target</th><th>Days</th><th>Hours</th><th>Guarantee</th></tr></thead>
+            <tbody>
+              <tr><td>Week 1</td><td>100,000</td><td>4</td><td>10</td><td style="color:var(--gold);font-weight:700;">$15</td></tr>
+              <tr><td>Week 2</td><td>150,000</td><td>4</td><td>10</td><td style="color:var(--gold);font-weight:700;">$15</td></tr>
+              <tr><td>Week 3</td><td>200,000</td><td>4</td><td>10</td><td style="color:var(--gold);font-weight:700;">$15</td></tr>
+              <tr><td>Week 4</td><td>300,000</td><td>4</td><td>10</td><td style="color:var(--gold);font-weight:700;">$15</td></tr>
+              <tr><td>Week 5+</td><td>300,000</td><td>4</td><td>10</td><td style="color:var(--gold);font-weight:700;">$15</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="rule-list" style="padding:0;margin-top:8px;">
+          <li><span class="rule-dot"></span><span>Only <strong>approved hosts</strong> can join this program</span></li>
+          <li><span class="rule-dot"></span><span>Missing one week's target <strong>does not cancel</strong> next week's guarantee</span></li>
+          <li><span class="rule-dot"></span><span>If targets not met → <strong>salary follows basic policy</strong></span></li>
+        </ul>
+
+        <div class="info-block" style="margin-top:14px;">
+          <div class="block-title" style="color:var(--gold);">4.1 Week 5 and Beyond</div>
+          <p style="font-size:11px;color:var(--text3);margin-bottom:6px;">Fixed Target Structure</p>
+          <p>From <strong>Week 5 onwards</strong>, the Ruby target is <strong>fixed at 300,000 Rubies</strong> per week, maintaining the <strong>$15 weekly guarantee</strong>.</p>
+          <p style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);"><strong>Old Host Audition:</strong> If an existing/old host passes the Prestige Policy audition, they are placed directly at <strong>Week 5</strong> — no ramp-up period.</p>
+          <p style="color:var(--text3);font-size:11px;margin-top:4px;">Fixed Terms: 300,000 Ruby target · 4 days · 10 hrs/week</p>
+        </div>
+
+        <div class="info-block purple" style="margin-top:10px;">
+          <div class="block-title">4.2 Requirements</div>
+          <ul><li>Look clean and presentable on stream</li><li>Follow schedule and complete required hours</li><li>Keep background neat and professional</li><li>Maintain good audio & video quality</li><li>Actively engage with viewers</li><li>Follow team instructions and join activities</li></ul>
+        </div>
+
+        <div class="warn-box" style="margin-top:10px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ff6666;margin-bottom:8px;">4.3 Removal Triggers</div>
+          <p>• Not streaming regularly or bad attitude<br>• Ignoring or disrespecting viewers<br>• Noisy setup with no improvement<br>• Not following team instructions<br>• Poor screen quality without fixing<br>• Breaking platform rules or laws<br>• <strong>2 bans/week</strong> → removed from policy (1st ban: 1 day · 2nd: 2 days)<br>• Mandatory broadcast: <strong>6 PM – 11:50 PM</strong><br>• Old host with new ID → <strong>ban, no compensation</strong></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer><p>© 2026 <strong>Rizz Live</strong> · All Rights Reserved</p></footer>
+</div>
+
+<!-- ═══════════════════ AGENCY POLICY PAGE ═══════════════════ -->
+<div id="page-agency" class="page">
+  <div class="inner-header">
+    <div class="back-icon" onclick="showPage('home')">←</div>
+    <div class="inner-header-logo">
+      <img src="logo.png" class="logo-img" style="width:32px;height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="logo-fallback" style="display:none;width:32px;height:32px;font-size:11px;">RL</div>
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:14px;font-weight:900;letter-spacing:2px;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Rizz Live</div>
+        <div style="font-size:9px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Live Streaming Platform</div>
+      </div>
+    </div>
+    <div class="inner-page-title">
+      <div class="label">Guidelines</div>
+      <div class="name">AGENCY POLICY</div>
+    </div>
+  </div>
+  <div class="inner-hero">
+    <div class="eyebrow">Back to Home</div>
+    <h2>AGENCY POLICY</h2>
+  </div>
+  <div class="accordion-wrap">
+
+    <!-- 01 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">01</div>
+        <div class="acc-title">Agency Commission Tiers</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <div class="tier-grid" style="grid-template-columns:1fr 1fr 1fr;">
+          <div class="tier-card">
+            <div class="tier-badge l1">Level 1</div>
+            <div class="tier-percent">16%</div>
+            <div class="tier-label">Below 10M Ruby/wk</div>
+          </div>
+          <div class="tier-card">
+            <div class="tier-badge l2">Level 2</div>
+            <div class="tier-percent">18%</div>
+            <div class="tier-label">10M–30M Ruby/wk</div>
+          </div>
+          <div class="tier-card">
+            <div class="tier-badge l3">Level 3</div>
+            <div class="tier-percent">20%</div>
+            <div class="tier-label">Above 30M Ruby/wk</div>
+          </div>
+        </div>
+        <div class="info-block purple" style="margin-top:10px;">
+          <div class="block-title">Requirements</div>
+          <ul><li>Agency must maintain at least <strong>5 active hosts</strong> every week</li><li>Actively encourage hosts to go live & join platform events</li></ul>
+        </div>
+        <div class="info-block" style="margin-top:10px;">
+          <div class="block-title" style="color:var(--cyan);">Weekly Task Period</div>
+          <p>All weekly tasks counted from <strong>Sunday 10:30 PM to Sunday 10:30 PM (IST)</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">02</div>
+        <div class="acc-title">Host Activation Salary</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Level</th><th>Monthly Target</th><th>Active Hosts</th><th>Basic Pay</th></tr></thead>
+            <tbody>
+              <tr><td>L1</td><td>Below 10M</td><td>—</td><td>—</td></tr>
+              <tr><td>L2</td><td>Above 10M</td><td>20</td><td style="color:var(--cyan);font-weight:700;">$25</td></tr>
+              <tr><td>L3</td><td>Above 50M</td><td>30</td><td style="color:var(--green);font-weight:700;">$225</td></tr>
+              <tr><td>L4</td><td>Above 100M</td><td>50</td><td style="color:var(--gold);font-weight:700;">$500</td></tr>
+              <tr><td>L5</td><td>Above 200M</td><td>50</td><td style="color:var(--pink);font-weight:700;">$1,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-block green" style="margin-top:10px;">
+          <div class="block-title">Active Host Definition</div>
+          <ul><li>At least <strong>10 valid days</strong> in a month</li><li>At least <strong>20 valid hours</strong> in a month</li><li>Minimum <strong>100,000 Rubies</strong> earned in gifts per month</li></ul>
+        </div>
+        <div class="warn-box" style="margin-top:10px;">
+          <p><strong>Important:</strong> Failure to meet the monthly revenue target or active host requirement results in <strong>disqualification</strong> from the Host Activation Salary Program.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">03</div>
+        <div class="acc-title">Commission Payout</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <div class="info-block green">
+          <div class="block-title">Payout Schedule</div>
+          <p>Commissions are paid on a <strong>daily basis in Rubies</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">04</div>
+        <div class="acc-title">Withdrawal Rules</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <ul class="rule-list" style="padding:0;">
+          <li><span class="rule-dot"></span><span>Withdrawal requests may be submitted <strong>once per day</strong></span></li>
+          <li><span class="rule-dot"></span><span>Minimum withdrawal amount: <strong>$10 USD</strong></span></li>
+        </ul>
+        <div class="info-block" style="margin-top:10px;">
+          <div class="block-title" style="color:var(--cyan);">Fee Structure</div>
+          <ul class="rule-list" style="padding:0;">
+            <li><span class="rule-dot"></span><span>Withdrawal less than <strong>$100</strong> → <strong>$2 flat fee</strong></span></li>
+            <li><span class="rule-dot"></span><span>Withdrawal <strong>$100 and above</strong> → <strong>2% of amount</strong></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <div class="acc-num">05</div>
+        <div class="acc-title">Agency Change Rules</div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="accordion-body">
+        <ul class="rule-list" style="padding:0;">
+          <li><span class="rule-dot"></span><span>No activity for <strong>120 days</strong></span></li>
+          <li><span class="rule-dot"></span><span>Agency unreachable for <strong>2 weeks</strong></span></li>
+          <li><span class="rule-dot"></span><span>Both agency and host <strong>mutually agree</strong> to the change</span></li>
+        </ul>
+        <div class="warn-box" style="margin-top:10px;">
+          <p><strong>Strict Warning:</strong> Any fraudulent transfer attempts → <strong>Warning / Suspension / Permanent Ban</strong></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer><p>© 2026 <strong>Rizz Live</strong> · All Rights Reserved</p></footer>
+</div>
+
+<!-- ═══════════════════ REGISTRATION FORM PAGE ═══════════════════ -->
+<div id="page-form" class="page">
+  <div class="inner-header">
+    <div class="back-icon" onclick="showPage('home')">←</div>
+    <div class="inner-header-logo">
+      <img src="logo.png" class="logo-img" style="width:32px;height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="logo-fallback" style="display:none;width:32px;height:32px;font-size:11px;">RL</div>
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:14px;font-weight:900;letter-spacing:2px;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Rizz Live</div>
+        <div style="font-size:9px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;">Live Streaming Platform</div>
+      </div>
+    </div>
+    <div class="inner-page-title">
+      <div class="label">Registration</div>
+      <div class="name">AGENCY FORM</div>
+    </div>
+  </div>
+  <div class="inner-hero">
+    <div class="eyebrow">Back to Home</div>
+    <h2>AGENCY REGISTRATION</h2>
+  </div>
+
+  <div class="form-wrap">
+    <!-- ✏️ EDIT: Change action to your Google Form or Formspree URL, or keep JS submit -->
+    <div id="reg-form">
+
+      <div class="form-group">
+        <label>Country Admin / Team Leader <span class="required-star">*</span></label>
+        <!-- ✏️ EDIT: Add/remove options below to match your team leaders -->
+        <select id="f-leader" required>
+          <option value="" disabled selected>Select Team Leader</option>
+          <option>Arjun</option>
+          <option>Aadya</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Admin (optional)</label>
+        <!-- ✏️ EDIT: Add admin options here -->
+        <select id="f-admin">
+          <option value="" disabled selected>Select Admin (Optional)</option>
+          <!-- ADD ADMIN OPTIONS HERE -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Agency Leader Name <span class="required-star">*</span></label>
+        <input type="text" id="f-leader-name" placeholder="Your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Agency Name <span class="required-star">*</span></label>
+        <input type="text" id="f-agency-name" placeholder="Your agency name" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Rizz Live ID <span class="required-star">*</span></label>
+          <input type="text" id="f-rizz-id" placeholder="Your Rizz ID" required>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number <span class="required-star">*</span></label>
+          <input type="tel" id="f-whatsapp" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Country <span class="required-star">*</span></label>
+        <select id="f-country" required>
+          <option value="" disabled selected>Select Country</option>
+          <option>India</option><option>Afghanistan</option><option>Albania</option>
+          <option>Algeria</option><option>Andorra</option><option>Angola</option>
+          <option>Argentina</option><option>Armenia</option><option>Australia</option>
+          <option>Austria</option><option>Azerbaijan</option><option>Bahrain</option>
+          <option>Bangladesh</option><option>Belgium</option><option>Brazil</option>
+          <option>Canada</option><option>China</option><option>Egypt</option>
+          <option>France</option><option>Germany</option><option>Indonesia</option>
+          <option>Iran</option><option>Iraq</option><option>Italy</option>
+          <option>Japan</option><option>Jordan</option><option>Kazakhstan</option>
+          <option>Kenya</option><option>Kuwait</option><option>Malaysia</option>
+          <option>Maldives</option><option>Morocco</option><option>Myanmar</option>
+          <option>Nepal</option><option>Netherlands</option><option>Nigeria</option>
+          <option>Oman</option><option>Pakistan</option><option>Philippines</option>
+          <option>Qatar</option><option>Russia</option><option>Saudi Arabia</option>
+          <option>Singapore</option><option>South Africa</option><option>South Korea</option>
+          <option>Spain</option><option>Sri Lanka</option><option>Sweden</option>
+          <option>Switzerland</option><option>Thailand</option><option>Turkey</option>
+          <option>Ukraine</option><option>United Arab Emirates</option>
+          <option>United Kingdom</option><option>United States</option>
+          <option>Uzbekistan</option><option>Vietnam</option><option>Yemen</option>
+        </select>
+      </div>
+
+      <!-- ✏️ ADD MORE FIELDS HERE — copy the form-group pattern above -->
+
+      <button class="submit-btn" onclick="submitForm()">Submit Registration</button>
+      <p class="form-note">Fields marked <span class="required-star">*</span> are required · Your data is safe with us 🔒</p>
+    </div>
+  </div>
+  <footer><p>© 2026 <strong>Rizz Live</strong> · All Rights Reserved</p></footer>
+</div>
+
+<script>
+// ── PAGE NAVIGATION ──
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ── ACCORDION ──
+function toggleAcc(header) {
+  const acc = header.parentElement;
+  acc.classList.toggle('open');
+}
+
+// ── FORM SUBMIT ──
+function submitForm() {
+  const leader = document.getElementById('f-leader').value;
+  const leaderName = document.getElementById('f-leader-name').value.trim();
+  const agencyName = document.getElementById('f-agency-name').value.trim();
+  const rizzId = document.getElementById('f-rizz-id').value.trim();
+  const whatsapp = document.getElementById('f-whatsapp').value.trim();
+  const country = document.getElementById('f-country').value;
+
+  if (!leader || !leaderName || !agencyName || !rizzId || !whatsapp || !country) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  fetch('https://script.google.com/macros/s/AKfycbxhVq70bj880GbVRrEN9nfi4hHc4k1OHElazoT_F8l0ShbbRxeXN67Dfh9JxHoofUdG/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ leader, leaderName, agencyName, rizzId, whatsapp, country })
+  })
+  .then(() => {
+    showPage('success');
+    btn.textContent = 'Submit Registration';
+    btn.disabled = false;
+  })
+  .catch(() => {
+    alert('Submission failed. Please check your connection and try again.');
+    btn.textContent = 'Submit Registration';
+    btn.disabled = false;
+  });
+}
+
+// ── HASH ROUTING (optional for GitHub Pages deep links) ──
+window.addEventListener('hashchange', () => {
+  const h = location.hash.replace('#','');
+  if (h) showPage(h);
+});
+if (location.hash) showPage(location.hash.replace('#',''));
+</script>
+</body>
+</html>
